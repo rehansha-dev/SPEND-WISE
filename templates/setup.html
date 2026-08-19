@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="setup-container">
+
+    <div class="page-heading">
+
+        <h1>Let's understand your finances</h1>
+
+        <p>
+            Answer these questions so SpendWise can help you manage your money better.
+        </p>
+
+    </div>
+
+
+    <form method="POST" class="setup-form">
+
+
+        <div class="setup-section">
+
+            <h2>Monthly Money</h2>
+
+            <div class="form-grid">
+
+                <div>
+
+                    <label>Monthly Budget</label>
+
+                    <input
+                        type="number"
+                        name="monthly_budget"
+                        placeholder="₹ 10000"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>Current Bank Balance</label>
+
+                    <input
+                        type="number"
+                        name="bank_balance"
+                        placeholder="₹ 5000"
+                        min="0"
+                        step="0.01"
+                        required
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>Monthly Pocket Money</label>
+
+                    <input
+                        type="number"
+                        name="pocket_money"
+                        placeholder="₹ 8000"
+                        min="0"
+                        step="0.01"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>Scholarship Income</label>
+
+                    <input
+                        type="number"
+                        name="scholarship_income"
+                        placeholder="₹ 0"
+                        min="0"
+                        step="0.01"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>Other Income</label>
+
+                    <input
+                        type="number"
+                        name="other_income"
+                        placeholder="₹ 0"
+                        min="0"
+                        step="0.01"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="setup-section">
+
+            <h2>Regular Fees & Expenses</h2>
+
+            <div class="form-grid">
+
+                <div>
+
+                    <label>Hostel Fee</label>
+
+                    <input
+                        type="number"
+                        name="hostel_fee"
+                        placeholder="₹ 0"
+                        min="0"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>College / Tuition Fee</label>
+
+                    <input
+                        type="number"
+                        name="college_fee"
+                        placeholder="₹ 0"
+                        min="0"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>Mess Fee</label>
+
+                    <input
+                        type="number"
+                        name="mess_fee"
+                        placeholder="₹ 0"
+                        min="0"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>Transport Expense</label>
+
+                    <input
+                        type="number"
+                        name="transport_fee"
+                        placeholder="₹ 0"
+                        min="0"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="setup-section">
+
+            <h2>Your Goal</h2>
+
+            <div class="form-grid">
+
+                <div>
+
+                    <label>Monthly Savings Goal</label>
+
+                    <input
+                        type="number"
+                        name="savings_goal"
+                        placeholder="₹ 2000"
+                        min="0"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button type="submit" class="save-button">
+
+            Build My Financial Dashboard →
+
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

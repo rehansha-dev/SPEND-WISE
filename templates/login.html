@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <h1>Welcome back</h1>
+
+        <p>
+            Let's see where your money is going.
+        </p>
+
+        <form method="POST">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <p class="bottom-text">
+
+            New to SpendWise?
+
+            <a href="{{ url_for('register') }}">
+                Create an account
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

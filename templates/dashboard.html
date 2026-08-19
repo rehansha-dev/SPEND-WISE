@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard-header">
+
+    <div>
+
+        <p class="welcome-text">
+            Welcome back, {{ session["user_name"] }}
+        </p>
+
+        <h1>
+            Your money dashboard
+        </h1>
+
+        <p>
+            Know where your money goes before it disappears.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="stats-grid">
+
+
+    <div class="stat-card">
+
+        <span class="stat-label">
+            Monthly Budget
+        </span>
+
+        <h2>
+            ₹{{ "{:,.0f}".format(setup["monthly_budget"]) }}
+        </h2>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span class="stat-label">
+            Total Spent
+        </span>
+
+        <h2>
+            ₹{{ "{:,.0f}".format(total_spent) }}
+        </h2>
+
+    </div>
+
+
+    <div class="stat-card highlight">
+
+        <span class="stat-label">
+            Remaining Budget
+        </span>
+
+        <h2>
+            ₹{{ "{:,.0f}".format(remaining_budget) }}
+        </h2>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span class="stat-label">
+            Current Bank Balance
+        </span>
+
+        <h2>
+            ₹{{ "{:,.0f}".format(setup["bank_balance"]) }}
+        </h2>
+
+    </div>
+
+
+</div>
+
+
+
+<div class="budget-section">
+
+    <div class="section-title">
+
+        <h2>
+            Monthly Budget Usage
+        </h2>
+
+        <span>
+            {{ percentage_used }}%
+        </span>
+
+    </div>
+
+
+    <div class="progress-container">
+
+        <div
+            class="progress-bar"
+            style="width: {{ percentage_used }}%">
+        </div>
+
+    </div>
+
+
+    <p class="advice">
+
+        {{ advice }}
+
+    </p>
+
+</div>
+
+
+
+{% if highest_category %}
+
+<div class="insight-card">
+
+    <span class="insight-label">
+        Biggest spending category
+    </span>
+
+    <h2>
+        {{ highest_category["category"] }}
+    </h2>
+
+    <p>
+
+        You have spent
+
+        <strong>
+            ₹{{ "{:,.0f}".format(highest_category["total"]) }}
+        </strong>
+
+        in this category this month.
+
+    </p>
+
+</div>
+
+{% endif %}
+
+
+
+<div class="content-grid">
+
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <h2>
+                Recent Expenses
+            </h2>
+
+            <a href="{{ url_for('expenses') }}">
+                View all
+            </a>
+
+        </div>
+
+
+        {% if expenses %}
+
+            {% for expense in expenses %}
+
+            <div class="expense-row">
+
+                <div>
+
+                    <strong>
+                        {{ expense["title"] }}
+                    </strong>
+
+                    <span>
+                        {{ expense["category"] }}
+                    </span>
+
+                </div>
+
+
+                <div class="expense-amount">
+
+                    - ₹{{ "{:,.0f}".format(expense["amount"]) }}
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p class="empty-state">
+
+                No expenses added yet.
+
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+
+    <div class="card">
+
+        <h2>
+            Spending Breakdown
+        </h2>
+
+
+        {% if categories %}
+
+            {% for category in categories %}
+
+            <div class="category-row">
+
+                <span>
+                    {{ category["category"] }}
+                </span>
+
+                <strong>
+                    ₹{{ "{:,.0f}".format(category["total"]) }}
+                </strong>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p class="empty-state">
+
+                Your category analysis will appear here.
+
+            </p>
+
+        {% endif %}
+
+    </div>
+
+
+</div>
+
+{% endblock %}
