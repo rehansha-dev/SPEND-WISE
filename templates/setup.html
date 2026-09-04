@@ -2,14 +2,30 @@
 
 {% block content %}
 
-<div class="setup-container">
+<div class="setup-page">
 
-    <div class="page-heading">
+    <div class="setup-hero">
 
-        <h1>Let's understand your finances</h1>
+        <div class="setup-progress">
+            <span class="active">01</span>
+            <span></span>
+            <span>02</span>
+            <span></span>
+            <span>03</span>
+        </div>
+
+        <div class="setup-badge">
+            ✦ Financial profile
+        </div>
+
+        <h1>
+            Let's build your<br>
+            <span>money plan.</span>
+        </h1>
 
         <p>
-            Answer these questions so SpendWise can help you manage your money better.
+            Tell SpendWise a little about your finances.
+            We'll use this information to make your dashboard smarter.
         </p>
 
     </div>
@@ -18,190 +34,351 @@
     <form method="POST" class="setup-form">
 
 
-        <div class="setup-section">
+        <!-- =========================
+             INCOME
+        ========================== -->
 
-            <h2>Monthly Money</h2>
+        <section class="setup-section">
 
-            <div class="form-grid">
+            <div class="setup-section-heading">
+
+                <div class="setup-number">
+                    01
+                </div>
 
                 <div>
+                    <span>YOUR MONEY</span>
+                    <h2>Monthly income & budget</h2>
+                    <p>
+                        Start with the money available to you each month.
+                    </p>
+                </div>
 
-                    <label>Monthly Budget</label>
+            </div>
 
-                    <input
-                        type="number"
-                        name="monthly_budget"
-                        placeholder="₹ 10000"
-                        min="0"
-                        step="0.01"
-                        required
-                    >
+
+            <div class="setup-grid">
+
+                <div class="modern-field field-large">
+
+                    <label>
+                        Monthly Budget
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <span>₹</span>
+
+                        <input
+                            type="number"
+                            name="monthly_budget"
+                            placeholder="10,000"
+                            step="0.01"
+                            min="0"
+                            required
+                        >
+
+                    </div>
+
+                    <small>
+                        How much are you planning to spend this month?
+                    </small>
 
                 </div>
 
 
-                <div>
+                <div class="modern-field field-large">
 
-                    <label>Current Bank Balance</label>
+                    <label>
+                        Current Bank Balance
+                    </label>
 
-                    <input
-                        type="number"
-                        name="bank_balance"
-                        placeholder="₹ 5000"
-                        min="0"
-                        step="0.01"
-                        required
-                    >
+                    <div class="input-wrap">
 
-                </div>
+                        <span>₹</span>
 
+                        <input
+                            type="number"
+                            name="bank_balance"
+                            placeholder="5,000"
+                            step="0.01"
+                            min="0"
+                        >
 
-                <div>
+                    </div>
 
-                    <label>Monthly Pocket Money</label>
-
-                    <input
-                        type="number"
-                        name="pocket_money"
-                        placeholder="₹ 8000"
-                        min="0"
-                        step="0.01"
-                    >
+                    <small>
+                        Your current available bank balance.
+                    </small>
 
                 </div>
 
 
-                <div>
+                <div class="modern-field">
 
-                    <label>Scholarship Income</label>
+                    <label>
+                        Monthly Pocket Money
+                    </label>
 
-                    <input
-                        type="number"
-                        name="scholarship_income"
-                        placeholder="₹ 0"
-                        min="0"
-                        step="0.01"
-                    >
+                    <div class="input-wrap">
+
+                        <span>₹</span>
+
+                        <input
+                            type="number"
+                            name="pocket_money"
+                            placeholder="8,000"
+                            step="0.01"
+                            min="0"
+                        >
+
+                    </div>
 
                 </div>
 
 
-                <div>
+                <div class="modern-field">
 
-                    <label>Other Income</label>
+                    <label>
+                        Scholarship Income
+                    </label>
 
-                    <input
-                        type="number"
-                        name="other_income"
-                        placeholder="₹ 0"
-                        min="0"
-                        step="0.01"
-                    >
+                    <div class="input-wrap">
+
+                        <span>₹</span>
+
+                        <input
+                            type="number"
+                            name="scholarship_income"
+                            placeholder="0"
+                            step="0.01"
+                            min="0"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="modern-field">
+
+                    <label>
+                        Other Income
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <span>₹</span>
+
+                        <input
+                            type="number"
+                            name="other_income"
+                            placeholder="0"
+                            step="0.01"
+                            min="0"
+                        >
+
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
+        </section>
 
 
+        <!-- =========================
+             FIXED EXPENSES
+        ========================== -->
 
-        <div class="setup-section">
+        <section class="setup-section">
 
-            <h2>Regular Fees & Expenses</h2>
+            <div class="setup-section-heading">
 
-            <div class="form-grid">
-
-                <div>
-
-                    <label>Hostel Fee</label>
-
-                    <input
-                        type="number"
-                        name="hostel_fee"
-                        placeholder="₹ 0"
-                        min="0"
-                    >
-
+                <div class="setup-number">
+                    02
                 </div>
 
-
                 <div>
+                    <span>FIXED COSTS</span>
 
-                    <label>College / Tuition Fee</label>
+                    <h2>Regular fees & expenses</h2>
 
-                    <input
-                        type="number"
-                        name="college_fee"
-                        placeholder="₹ 0"
-                        min="0"
-                    >
-
-                </div>
-
-
-                <div>
-
-                    <label>Mess Fee</label>
-
-                    <input
-                        type="number"
-                        name="mess_fee"
-                        placeholder="₹ 0"
-                        min="0"
-                    >
-
-                </div>
-
-
-                <div>
-
-                    <label>Transport Expense</label>
-
-                    <input
-                        type="number"
-                        name="transport_fee"
-                        placeholder="₹ 0"
-                        min="0"
-                    >
+                    <p>
+                        Add the expenses you already know you'll have.
+                    </p>
 
                 </div>
 
             </div>
 
-        </div>
+
+            <div class="setup-grid four-grid">
+
+                <div class="modern-field">
+
+                    <label>
+                        🏠 Hostel Fee
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <span>₹</span>
+
+                        <input
+                            type="number"
+                            name="hostel_fee"
+                            placeholder="0"
+                            step="0.01"
+                            min="0"
+                        >
+
+                    </div>
+
+                </div>
 
 
+                <div class="modern-field">
 
-        <div class="setup-section">
+                    <label>
+                        🎓 College / Tuition
+                    </label>
 
-            <h2>Your Goal</h2>
+                    <div class="input-wrap">
 
-            <div class="form-grid">
+                        <span>₹</span>
 
-                <div>
+                        <input
+                            type="number"
+                            name="college_fee"
+                            placeholder="0"
+                            step="0.01"
+                            min="0"
+                        >
 
-                    <label>Monthly Savings Goal</label>
+                    </div>
 
-                    <input
-                        type="number"
-                        name="savings_goal"
-                        placeholder="₹ 2000"
-                        min="0"
-                    >
+                </div>
+
+
+                <div class="modern-field">
+
+                    <label>
+                        🍱 Mess Fee
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <span>₹</span>
+
+                        <input
+                            type="number"
+                            name="mess_fee"
+                            placeholder="0"
+                            step="0.01"
+                            min="0"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="modern-field">
+
+                    <label>
+                        🚌 Transport
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <span>₹</span>
+
+                        <input
+                            type="number"
+                            name="transport_fee"
+                            placeholder="0"
+                            step="0.01"
+                            min="0"
+                        >
+
+                    </div>
 
                 </div>
 
             </div>
 
+        </section>
+
+
+        <!-- =========================
+             SAVINGS
+        ========================== -->
+
+        <section class="goal-section">
+
+            <div class="goal-glow"></div>
+
+            <div class="goal-content">
+
+                <div class="setup-number goal-number">
+                    03
+                </div>
+
+                <div>
+
+                    <span>YOUR FUTURE</span>
+
+                    <h2>
+                        What's your savings goal?
+                    </h2>
+
+                    <p>
+                        Even a small goal gives your money somewhere to go.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="goal-input">
+
+                <span>₹</span>
+
+                <input
+                    type="number"
+                    name="savings_goal"
+                    placeholder="2,000"
+                    step="0.01"
+                    min="0"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SUBMIT
+        ========================== -->
+
+        <div class="setup-submit">
+
+            <div>
+                <span>READY?</span>
+
+                <p>
+                    Your dashboard will be personalised from this information.
+                </p>
+            </div>
+
+            <button type="submit">
+                Build My Dashboard
+                <span>→</span>
+            </button>
+
         </div>
-
-
-        <button type="submit" class="save-button">
-
-            Build My Financial Dashboard →
-
-        </button>
 
     </form>
 
