@@ -35,20 +35,93 @@ body {
 
     background:
         radial-gradient(
-            circle at 10% 10%,
-            rgba(117, 103, 248, 0.10),
+            circle at 5% 10%,
+            rgba(117, 103, 248, 0.18),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 95% 15%,
+            rgba(32, 201, 151, 0.14),
             transparent 30%
         ),
         radial-gradient(
-            circle at 90% 20%,
-            rgba(32, 201, 151, 0.08),
-            transparent 28%
+            circle at 50% 90%,
+            rgba(239, 108, 174, 0.08),
+            transparent 32%
         ),
-        var(--bg);
+        #eef1f8;
 
     min-height: 100vh;
+
+    overflow-x: hidden;
+}
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 420px;
+    height: 420px;
+
+    left: -180px;
+    top: 30%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(117, 103, 248, 0.12),
+            transparent 70%
+        );
+
+    filter: blur(40px);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    animation: ambientFloat 10s ease-in-out infinite;
 }
 
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 400px;
+    height: 400px;
+
+    right: -180px;
+    bottom: 5%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(32, 201, 151, 0.10),
+            transparent 70%
+        );
+
+    filter: blur(45px);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    animation: ambientFloat 12s ease-in-out infinite reverse;
+}
+
+@keyframes ambientFloat {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+
+    50% {
+        transform: translateY(-35px) translateX(25px);
+    }
+}
 
 /* =========================================================
    NAVBAR
