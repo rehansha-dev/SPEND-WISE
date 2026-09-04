@@ -3573,3 +3573,309 @@ textarea:focus {
             0.01ms !important;
     }
 }
+
+/* =========================================================
+   FINAL ATMOSPHERIC OVERRIDE
+========================================================= */
+
+/* Make the page background more dramatic */
+body {
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(117, 103, 248, 0.28),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(32, 201, 151, 0.20),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 50% 80%,
+            rgba(239, 108, 174, 0.12),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #e5e7f2 0%,
+            #f2f3f7 42%,
+            #e8f3f1 100%
+        );
+}
+
+/* =========================================================
+   EXPENSE PAGE
+========================================================= */
+
+.expenses-page {
+    position: relative;
+}
+
+/* Main add-expense panel */
+.add-expense-card {
+    position: relative;
+
+    padding: 32px;
+
+    margin-bottom: 28px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.58),
+            rgba(255, 255, 255, 0.34)
+        );
+
+    backdrop-filter:
+        blur(30px);
+
+    -webkit-backdrop-filter:
+        blur(30px);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.70);
+
+    box-shadow:
+        0 30px 90px rgba(35, 40, 65, 0.11),
+        inset 0 1px 0 rgba(255, 255, 255, 0.75);
+
+    overflow: hidden;
+}
+
+/* Purple glow inside card */
+.add-expense-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    right: -150px;
+    top: -150px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(117, 103, 248, 0.15),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+/* Green glow */
+.add-expense-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    left: -130px;
+    bottom: -130px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(32, 201, 151, 0.10),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+/* Keep form content above glow */
+.add-expense-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================================
+   EXPENSE INPUTS
+========================================================= */
+
+.expense-field input,
+.expense-field select,
+.expense-field textarea,
+.amount-input {
+    background:
+        rgba(255, 255, 255, 0.52) !important;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.70) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.60),
+        0 8px 25px rgba(40, 45, 70, 0.035);
+}
+
+.expense-field input:hover,
+.expense-field select:hover,
+.expense-field textarea:hover,
+.amount-input:hover {
+    background:
+        rgba(255, 255, 255, 0.68) !important;
+}
+
+/* =========================================================
+   EXPENSE HISTORY
+========================================================= */
+
+.history-item {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.58),
+            rgba(255, 255, 255, 0.36)
+        );
+
+    backdrop-filter:
+        blur(24px);
+
+    -webkit-backdrop-filter:
+        blur(24px);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.68);
+
+    box-shadow:
+        0 15px 45px rgba(35, 40, 65, 0.07);
+}
+
+.history-item:hover {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.72),
+            rgba(255, 255, 255, 0.48)
+        );
+
+    transform:
+        translateX(7px);
+}
+
+/* =========================================================
+   HISTORY ICONS
+========================================================= */
+
+.history-icon {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(117, 103, 248, 0.13),
+            rgba(32, 201, 151, 0.08)
+        );
+
+    border:
+        1px solid rgba(117, 103, 248, 0.08);
+}
+
+/* =========================================================
+   SECTION LABELS
+========================================================= */
+
+.history-heading {
+    position: relative;
+}
+
+.history-heading h2 {
+    font-size: 26px;
+}
+
+.history-heading > div > span {
+    letter-spacing: 2px;
+}
+
+/* =========================================================
+   DARKER PAGE EDGES
+========================================================= */
+
+.main-content {
+    position: relative;
+}
+
+/* Large ambient glow behind content */
+.main-content::after {
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    left: 50%;
+    top: 25%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(117, 103, 248, 0.07),
+            transparent 68%
+        );
+
+    filter:
+        blur(60px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+/* =========================================================
+   SETUP PAGE GLASS
+========================================================= */
+
+.setup-section {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.60),
+            rgba(241, 240, 255, 0.38)
+        );
+}
+
+/* =========================================================
+   MODERN FIELD - LESS WHITE
+========================================================= */
+
+.modern-field {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(247, 248, 252, 0.68),
+            rgba(238, 240, 248, 0.40)
+        );
+}
+
+.input-wrap {
+    background:
+        rgba(255, 255, 255, 0.60);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+    .add-expense-card {
+        padding: 22px;
+    }
+
+    .history-item {
+        padding: 15px;
+    }
+}
