@@ -5,196 +5,287 @@
 <div class="expenses-page">
 
 
-    <div class="page-heading">
+    <!-- =========================
+         HEADER
+    ========================== -->
 
-        <h1>Expenses</h1>
+    <section class="expenses-hero">
 
-        <p>
-            Every rupee has a story. Track yours.
-        </p>
+        <div>
 
-    </div>
+            <div class="expenses-badge">
+                ✦ Expense tracker
+            </div>
 
+            <h1>
+                Every rupee<br>
+                <span>has a story.</span>
+            </h1>
 
+            <p>
+                Track your spending, understand your habits,
+                and stay in control.
+            </p>
 
-    <div class="expense-layout">
+        </div>
 
+        <div class="expense-hero-icon">
+            ₹
+        </div>
 
-        <div class="add-expense-card">
-
-            <h2>Add Expense</h2>
-
-
-            <form
-                method="POST"
-                action="{{ url_for('add_expense') }}"
-            >
-
-
-                <label>What did you spend on?</label>
-
-                <input
-                    type="text"
-                    name="title"
-                    placeholder="Example: Biryani"
-                    required
-                >
+    </section>
 
 
-                <label>Amount</label>
+    <!-- =========================
+         ADD EXPENSE
+    ========================== -->
 
-                <input
-                    type="number"
-                    name="amount"
-                    placeholder="₹ 250"
-                    min="1"
-                    step="0.01"
-                    required
-                >
+    <section class="add-expense-card">
 
+        <div class="form-heading">
 
-                <label>Category</label>
+            <div class="form-icon">
+                +
+            </div>
 
-                <select name="category" required>
+            <div>
+                <span>NEW TRANSACTION</span>
 
-                    <option value="">
-                        Select Category
-                    </option>
+                <h2>
+                    Add an expense
+                </h2>
 
-                    <option value="Food">
-                        Food
-                    </option>
-
-                    <option value="Mess">
-                        Mess
-                    </option>
-
-                    <option value="Hostel Fee">
-                        Hostel Fee
-                    </option>
-
-                    <option value="College Fee">
-                        College Fee
-                    </option>
-
-                    <option value="Exam Fee">
-                        Exam Fee
-                    </option>
-
-                    <option value="Books">
-                        Books & Education
-                    </option>
-
-                    <option value="Club Fee">
-                        Club Fee
-                    </option>
-
-                    <option value="Fest">
-                        Fest / Events
-                    </option>
-
-                    <option value="Transport">
-                        Transport
-                    </option>
-
-                    <option value="Shopping">
-                        Shopping
-                    </option>
-
-                    <option value="Entertainment">
-                        Entertainment
-                    </option>
-
-                    <option value="Subscriptions">
-                        Subscriptions
-                    </option>
-
-                    <option value="Medical">
-                        Medical
-                    </option>
-
-                    <option value="Miscellaneous">
-                        Miscellaneous
-                    </option>
-
-                </select>
-
-
-                <label>Description</label>
-
-                <textarea
-                    name="description"
-                    placeholder="Optional notes..."
-                ></textarea>
-
-
-                <label>Date</label>
-
-                <input
-                    type="date"
-                    name="expense_date"
-                    id="expense_date"
-                    required
-                >
-
-
-                <button type="submit">
-
-                    Add Expense
-
-                </button>
-
-
-            </form>
+                <p>
+                    What did you spend money on?
+                </p>
+            </div>
 
         </div>
 
 
-
-        <div class="expenses-list-card">
-
-
-            <h2>
-                Your Expense History
-            </h2>
+        <form
+            method="POST"
+            action="{{ url_for('add_expense') }}"
+            class="expense-form"
+        >
 
 
-            {% if expenses %}
+            <div class="expense-field title-field">
+
+                <label>
+                    What did you spend on?
+                </label>
+
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="e.g. Biryani, Movie, Uber..."
+                    required
+                >
+
+            </div>
+
+
+            <div class="expense-field amount-field">
+
+                <label>
+                    Amount
+                </label>
+
+                <div class="amount-input">
+
+                    <span>₹</span>
+
+                    <input
+                        type="number"
+                        name="amount"
+                        placeholder="250"
+                        step="0.01"
+                        min="0"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="expense-field category-field">
+
+                <label>
+                    Category
+                </label>
+
+                <select name="category" required>
+
+                    <option value="">
+                        Select category
+                    </option>
+
+                    <option value="Food">
+                        🍔 Food
+                    </option>
+
+                    <option value="Transport">
+                        🚌 Transport
+                    </option>
+
+                    <option value="Shopping">
+                        🛍️ Shopping
+                    </option>
+
+                    <option value="Entertainment">
+                        🎮 Entertainment
+                    </option>
+
+                    <option value="Education">
+                        🎓 Education
+                    </option>
+
+                    <option value="Health">
+                        ❤️ Health
+                    </option>
+
+                    <option value="Other">
+                        ✦ Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="expense-field date-field">
+
+                <label>
+                    Date
+                </label>
+
+                <input
+                    type="date"
+                    name="expense_date"
+                    required
+                >
+
+            </div>
+
+
+            <div class="expense-field description-field">
+
+                <label>
+                    Description
+                    <span>Optional</span>
+                </label>
+
+                <textarea
+                    name="description"
+                    placeholder="Add a note about this expense..."
+                    rows="3"
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="add-expense-btn"
+            >
+                Add Expense
+                <span>+</span>
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- =========================
+         HISTORY
+    ========================== -->
+
+    <section class="history-section">
+
+        <div class="history-heading">
+
+            <div>
+
+                <span>
+                    YOUR ACTIVITY
+                </span>
+
+                <h2>
+                    Expense history
+                </h2>
+
+            </div>
+
+            <div class="history-count">
+                {{ expenses|length }} transactions
+            </div>
+
+        </div>
+
+
+        {% if expenses %}
+
+            <div class="expense-history">
 
                 {% for expense in expenses %}
 
+                <div class="history-item">
 
-                <div class="expense-item">
+                    <div class="history-left">
+
+                        <div class="history-icon">
+
+                            {% if expense["category"] == "Food" %}
+                                🍔
+                            {% elif expense["category"] == "Transport" %}
+                                🚌
+                            {% elif expense["category"] == "Shopping" %}
+                                🛍️
+                            {% elif expense["category"] == "Entertainment" %}
+                                🎮
+                            {% elif expense["category"] == "Education" %}
+                                🎓
+                            {% elif expense["category"] == "Health" %}
+                                ❤️
+                            {% else %}
+                                ✦
+                            {% endif %}
+
+                        </div>
 
 
-                    <div class="expense-info">
+                        <div class="history-details">
 
-                        <strong>
-                            {{ expense["title"] }}
-                        </strong>
+                            <strong>
+                                {{ expense["title"] }}
+                            </strong>
 
-                        <span class="category-badge">
+                            <span>
+                                {{ expense["category"] }}
+                                ·
+                                {{ expense["expense_date"] }}
+                            </span>
 
-                            {{ expense["category"] }}
+                            {% if expense["description"] %}
 
-                        </span>
+                            <small>
+                                {{ expense["description"] }}
+                            </small>
 
+                            {% endif %}
 
-                        <small>
-
-                            {{ expense["expense_date"] }}
-
-                        </small>
+                        </div>
 
                     </div>
 
 
-                    <div class="expense-right">
+                    <div class="history-right">
 
                         <strong>
-
-                            ₹{{ "{:,.0f}".format(expense["amount"]) }}
-
+                            −₹{{ "{:,.0f}".format(expense["amount"]) }}
                         </strong>
 
 
@@ -205,48 +296,44 @@
 
                             <button
                                 type="submit"
-                                class="delete-button"
+                                class="delete-btn"
+                                onclick="return confirm('Delete this expense?')"
                             >
-
                                 Delete
-
                             </button>
 
                         </form>
 
                     </div>
 
-
                 </div>
-
 
                 {% endfor %}
 
+            </div>
 
-            {% else %}
+        {% else %}
 
+            <div class="expense-empty">
 
-                <div class="empty-state">
-
-                    <h3>
-                        No expenses yet
-                    </h3>
-
-                    <p>
-                        Add your first expense and start tracking your money.
-                    </p>
-
+                <div class="empty-icon">
+                    ₹
                 </div>
 
+                <h3>
+                    Your expense history is empty
+                </h3>
 
-            {% endif %}
+                <p>
+                    Add your first transaction above and
+                    start understanding where your money goes.
+                </p>
 
+            </div>
 
-        </div>
+        {% endif %}
 
-
-    </div>
-
+    </section>
 
 </div>
 
