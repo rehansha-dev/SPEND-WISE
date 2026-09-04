@@ -1751,3 +1751,1126 @@ textarea:focus {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* =========================================================
+   FINANCIAL SETUP
+========================================================= */
+
+.setup-page {
+    max-width: 920px;
+    margin: auto;
+}
+
+.setup-hero {
+    position: relative;
+
+    padding: 45px 48px;
+    margin-bottom: 25px;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(117,103,248,.28),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 60% 100%,
+            rgba(32,201,151,.15),
+            transparent 35%
+        ),
+        #111214;
+
+    color: white;
+
+    box-shadow:
+        0 25px 65px rgba(20,22,30,.18);
+}
+
+.setup-progress {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 30px;
+}
+
+.setup-progress span:not(:nth-child(even)) {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    color: rgba(255,255,255,.45);
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.setup-progress .active {
+    color: white;
+
+    background: #7567f8;
+
+    border-color: #7567f8;
+
+    box-shadow:
+        0 0 25px rgba(117,103,248,.4);
+}
+
+.setup-progress span:nth-child(even) {
+    width: 30px;
+    height: 1px;
+
+    background: rgba(255,255,255,.12);
+}
+
+.setup-badge,
+.expenses-badge {
+    display: inline-block;
+
+    padding: 7px 12px;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.07);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    color: rgba(255,255,255,.7);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    margin-bottom: 17px;
+}
+
+.setup-hero h1 {
+    font-family: "Space Grotesk";
+
+    font-size: clamp(38px, 5vw, 58px);
+
+    line-height: 1;
+
+    letter-spacing: -2.5px;
+
+    margin-bottom: 17px;
+}
+
+.setup-hero h1 span {
+    color: #9d92ff;
+}
+
+.setup-hero p {
+    max-width: 560px;
+
+    color: rgba(255,255,255,.55);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SETUP SECTIONS
+========================================================= */
+
+.setup-section {
+    padding: 32px;
+
+    margin-bottom: 20px;
+
+    border-radius: 26px;
+
+    background: rgba(255,255,255,.86);
+
+    border: 1px solid rgba(255,255,255,.9);
+
+    box-shadow:
+        0 18px 45px rgba(30,35,55,.06);
+}
+
+.setup-section-heading {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.setup-number {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #f0efff;
+
+    color: #7567f8;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.setup-section-heading span,
+.goal-content > div > span,
+.setup-submit span {
+    color: #8b90a0;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+}
+
+.setup-section-heading h2,
+.goal-content h2 {
+    font-family: "Space Grotesk";
+
+    font-size: 21px;
+
+    letter-spacing: -.5px;
+
+    margin: 3px 0 5px;
+}
+
+.setup-section-heading p,
+.goal-content p {
+    color: #858a98;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SETUP FORM GRID
+========================================================= */
+
+.setup-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.four-grid {
+    grid-template-columns:
+        repeat(2, 1fr);
+}
+
+.modern-field {
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background: #f8f9fc;
+
+    border: 1px solid #edf0f5;
+
+    transition:
+        transform .25s ease,
+        border .25s ease,
+        box-shadow .25s ease;
+}
+
+.modern-field:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(117,103,248,.25);
+
+    box-shadow:
+        0 12px 30px rgba(40,45,70,.06);
+}
+
+.modern-field label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.input-wrap {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 0 13px;
+
+    border-radius: 13px;
+
+    background: white;
+
+    border: 1px solid #e8eaf0;
+
+    transition:
+        border .25s ease,
+        box-shadow .25s ease;
+}
+
+.input-wrap:focus-within {
+    border-color: #7567f8;
+
+    box-shadow:
+        0 0 0 4px rgba(117,103,248,.09);
+}
+
+.input-wrap > span {
+    color: #7567f8;
+
+    font-weight: 800;
+
+    font-size: 14px;
+}
+
+.input-wrap input {
+    border: none;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    padding: 14px 0;
+}
+
+.input-wrap input:focus {
+    box-shadow: none;
+
+    transform: none;
+}
+
+.modern-field small {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #a0a5b1;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   GOAL
+========================================================= */
+
+.goal-section {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 28px 32px;
+
+    margin-bottom: 20px;
+
+    border-radius: 26px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 90% 50%,
+            rgba(32,201,151,.18),
+            transparent 35%
+        ),
+        #111214;
+
+    color: white;
+
+    box-shadow:
+        0 20px 50px rgba(17,18,20,.15);
+}
+
+.goal-content {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+}
+
+.goal-number {
+    background: rgba(255,255,255,.09);
+
+    color: #62e0ba;
+}
+
+.goal-content > div > span {
+    color: #62e0ba;
+}
+
+.goal-content h2 {
+    color: white;
+}
+
+.goal-content p {
+    color: rgba(255,255,255,.5);
+}
+
+.goal-input {
+    min-width: 250px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 5px 15px;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.08);
+
+    border: 1px solid rgba(255,255,255,.12);
+}
+
+.goal-input > span {
+    color: #62e0ba;
+
+    font-weight: 800;
+}
+
+.goal-input input {
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    box-shadow: none;
+}
+
+.goal-input input::placeholder {
+    color: rgba(255,255,255,.35);
+}
+
+.goal-input input:focus {
+    box-shadow: none;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   SETUP SUBMIT
+========================================================= */
+
+.setup-submit {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 22px 5px;
+}
+
+.setup-submit p {
+    margin-top: 4px;
+
+    color: #858a98;
+
+    font-size: 11px;
+}
+
+.setup-submit button {
+    padding: 15px 22px;
+
+    border-radius: 15px;
+
+    background: #111214;
+
+    color: white;
+
+    font-weight: 700;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.setup-submit button span {
+    color: white;
+
+    margin-left: 8px;
+
+    font-size: 15px;
+}
+
+.setup-submit button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 30px rgba(17,18,20,.18);
+}
+
+
+/* =========================================================
+   EXPENSES HERO
+========================================================= */
+
+.expenses-page {
+    max-width: 920px;
+
+    margin: auto;
+}
+
+.expenses-hero {
+    position: relative;
+
+    min-height: 245px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 40px 45px;
+
+    margin-bottom: 22px;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(239,108,174,.2),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 70% 100%,
+            rgba(117,103,248,.2),
+            transparent 35%
+        ),
+        #111214;
+
+    color: white;
+
+    box-shadow:
+        0 25px 65px rgba(20,22,30,.18);
+}
+
+.expenses-hero h1 {
+    font-family: "Space Grotesk";
+
+    font-size: clamp(40px, 5vw, 60px);
+
+    line-height: .98;
+
+    letter-spacing: -2.5px;
+
+    margin-bottom: 17px;
+}
+
+.expenses-hero h1 span {
+    color: #ef6cae;
+}
+
+.expenses-hero p {
+    max-width: 520px;
+
+    color: rgba(255,255,255,.52);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.expense-hero-icon {
+    width: 130px;
+    height: 130px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(117,103,248,.7),
+            rgba(239,108,174,.55)
+        );
+
+    box-shadow:
+        0 0 60px rgba(117,103,248,.2);
+
+    font-family: "Space Grotesk";
+
+    font-size: 48px;
+
+    font-weight: 700;
+
+    animation:
+        floatingIcon 4s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   ADD EXPENSE CARD
+========================================================= */
+
+.add-expense-card {
+    padding: 30px;
+
+    margin-bottom: 25px;
+
+    border-radius: 27px;
+
+    background: rgba(255,255,255,.88);
+
+    border: 1px solid rgba(255,255,255,.9);
+
+    box-shadow:
+        0 18px 50px rgba(30,35,55,.07);
+}
+
+.form-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 25px;
+}
+
+.form-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #111214;
+
+    color: white;
+
+    font-size: 24px;
+}
+
+.form-heading span,
+.history-heading > div > span {
+    color: #8b90a0;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+}
+
+.form-heading h2 {
+    font-family: "Space Grotesk";
+
+    font-size: 22px;
+
+    margin: 2px 0;
+}
+
+.form-heading p {
+    color: #858a98;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   EXPENSE FORM
+========================================================= */
+
+.expense-form {
+    display: grid;
+
+    grid-template-columns:
+        1.5fr .8fr 1fr 1fr;
+
+    gap: 17px;
+}
+
+.expense-field {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.expense-field label {
+    margin-bottom: 8px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: #555b68;
+}
+
+.expense-field label span {
+    color: #a0a5b1;
+
+    font-weight: 500;
+
+    margin-left: 4px;
+}
+
+.expense-field input,
+.expense-field select,
+.expense-field textarea {
+    border-radius: 14px;
+
+    background: #f8f9fc;
+
+    border: 1px solid #e8eaf0;
+}
+
+.expense-field textarea {
+    resize: vertical;
+
+    min-height: 90px;
+}
+
+.title-field {
+    grid-column: span 2;
+}
+
+.description-field {
+    grid-column: span 3;
+}
+
+.amount-input {
+    display: flex;
+
+    align-items: center;
+
+    padding-left: 14px;
+
+    border-radius: 14px;
+
+    background: #f8f9fc;
+
+    border: 1px solid #e8eaf0;
+}
+
+.amount-input span {
+    color: #7567f8;
+
+    font-weight: 800;
+}
+
+.amount-input input {
+    border: none;
+
+    background: transparent;
+}
+
+.amount-input input:focus {
+    box-shadow: none;
+
+    transform: none;
+}
+
+.add-expense-btn {
+    align-self: end;
+
+    height: 48px;
+
+    border-radius: 14px;
+
+    background: #111214;
+
+    color: white;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.add-expense-btn span {
+    margin-left: 8px;
+
+    font-size: 18px;
+}
+
+.add-expense-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 30px rgba(17,18,20,.17);
+}
+
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+.history-section {
+    margin-top: 10px;
+}
+
+.history-heading {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+.history-heading h2 {
+    font-family: "Space Grotesk";
+
+    font-size: 24px;
+
+    margin-top: 4px;
+}
+
+.history-count {
+    padding: 8px 12px;
+
+    border-radius: 999px;
+
+    background: #f0efff;
+
+    color: #7567f8;
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+.expense-history {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.history-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 17px 20px;
+
+    border-radius: 19px;
+
+    background: rgba(255,255,255,.84);
+
+    border: 1px solid rgba(255,255,255,.9);
+
+    box-shadow:
+        0 10px 30px rgba(30,35,55,.045);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.history-item:hover {
+    transform: translateX(5px);
+
+    box-shadow:
+        0 15px 35px rgba(30,35,55,.08);
+}
+
+.history-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+.history-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #f0efff;
+
+    font-size: 19px;
+}
+
+.history-details {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.history-details strong {
+    font-size: 14px;
+}
+
+.history-details span {
+    color: #9297a4;
+
+    font-size: 10px;
+}
+
+.history-details small {
+    color: #a0a5b1;
+
+    font-size: 10px;
+}
+
+.history-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+.history-right > strong {
+    font-family: "Space Grotesk";
+
+    font-size: 15px;
+}
+
+.delete-btn {
+    padding: 8px 11px;
+
+    border-radius: 10px;
+
+    background: #fff0f1;
+
+    color: #df6065;
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+.delete-btn:hover {
+    background: #ffe2e4;
+
+    box-shadow: none;
+
+    transform: none;
+}
+
+
+/* =========================================================
+   EMPTY EXPENSE STATE
+========================================================= */
+
+.expense-empty {
+    min-height: 280px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px;
+
+    border-radius: 25px;
+
+    background: rgba(255,255,255,.8);
+
+    border: 1px dashed #dfe2e9;
+}
+
+.empty-icon {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: #f0efff;
+
+    color: #7567f8;
+
+    font-family: "Space Grotesk";
+
+    font-size: 26px;
+
+    margin-bottom: 15px;
+
+    animation:
+        floatingIcon 3s ease-in-out infinite;
+}
+
+.expense-empty h3 {
+    font-family: "Space Grotesk";
+
+    font-size: 18px;
+
+    margin-bottom: 7px;
+}
+
+.expense-empty p {
+    max-width: 350px;
+
+    color: #9297a4;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .setup-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .four-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .expense-form {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .title-field,
+    .description-field {
+        grid-column: span 2;
+    }
+
+    .goal-section {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .goal-input {
+        width: 100%;
+    }
+
+    .expense-hero-icon {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .setup-hero,
+    .expenses-hero {
+        padding: 30px 25px;
+    }
+
+    .setup-section,
+    .add-expense-card {
+        padding: 22px;
+    }
+
+    .four-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .expense-form {
+        grid-template-columns: 1fr;
+    }
+
+    .title-field,
+    .description-field {
+        grid-column: span 1;
+    }
+
+    .expenses-hero {
+        min-height: 300px;
+    }
+
+    .expense-hero-icon {
+        position: absolute;
+
+        right: -25px;
+        bottom: -25px;
+
+        opacity: .4;
+    }
+
+    .setup-submit {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 15px;
+    }
+
+    .setup-submit button {
+        width: 100%;
+    }
+
+    .history-item {
+        align-items: flex-start;
+    }
+
+    .history-right {
+        flex-direction: column;
+
+        align-items: flex-end;
+
+        gap: 8px;
+    }
+}
