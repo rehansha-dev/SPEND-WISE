@@ -2,164 +2,249 @@
 
 {% block content %}
 
-<div class="dashboard-header">
+<!-- =========================
+     HERO
+========================= -->
 
-    <div>
+<section class="dw-hero">
+
+    <div class="hero-glow"></div>
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            Your finances, simplified
+        </div>
 
         <p class="welcome-text">
-            Welcome back, {{ session["user_name"] }}
+            Welcome back, {{ session["user_name"] }} 👋
         </p>
 
         <h1>
-            Your money dashboard
+            Your money.<br>
+            <span>Under control.</span>
         </h1>
 
-        <p>
+        <p class="hero-description">
             Know where your money goes before it disappears.
         </p>
 
     </div>
 
-</div>
+    <div class="hero-orb">
+        <div class="orb-inner">
+            ₹
+        </div>
+    </div>
+
+</section>
 
 
-<div class="stats-grid">
+<!-- =========================
+     STAT CARDS
+========================= -->
 
+<section class="dw-stats">
 
-    <div class="stat-card">
+    <div class="dw-stat-card">
+        <div class="stat-icon budget-icon">₹</div>
 
-        <span class="stat-label">
-            Monthly Budget
-        </span>
+        <div class="stat-info">
+            <span>Monthly Budget</span>
+            <strong>
+                ₹{{ "{:,.0f}".format(setup["monthly_budget"]) }}
+            </strong>
+        </div>
 
-        <h2>
-            ₹{{ "{:,.0f}".format(setup["monthly_budget"]) }}
-        </h2>
-
+        <div class="stat-arrow">↗</div>
     </div>
 
 
-    <div class="stat-card">
+    <div class="dw-stat-card">
+        <div class="stat-icon spent-icon">↘</div>
 
-        <span class="stat-label">
-            Total Spent
-        </span>
+        <div class="stat-info">
+            <span>Total Spent</span>
+            <strong>
+                ₹{{ "{:,.0f}".format(total_spent) }}
+            </strong>
+        </div>
 
-        <h2>
-            ₹{{ "{:,.0f}".format(total_spent) }}
-        </h2>
-
+        <div class="stat-arrow">↗</div>
     </div>
 
 
-    <div class="stat-card highlight">
+    <div class="dw-stat-card featured-stat">
 
-        <span class="stat-label">
-            Remaining Budget
-        </span>
+        <div class="featured-top">
+            <div class="stat-icon white-icon">✓</div>
 
-        <h2>
-            ₹{{ "{:,.0f}".format(remaining_budget) }}
-        </h2>
+            <span class="safe-badge">
+                {% if percentage_used < 75 %}
+                    On track
+                {% elif percentage_used < 90 %}
+                    Watch it
+                {% else %}
+                    Careful
+                {% endif %}
+            </span>
+        </div>
 
-    </div>
+        <div class="stat-info">
+            <span>Remaining Budget</span>
 
+            <strong>
+                ₹{{ "{:,.0f}".format(remaining_budget) }}
+            </strong>
+        </div>
 
-    <div class="stat-card">
-
-        <span class="stat-label">
-            Current Bank Balance
-        </span>
-
-        <h2>
-            ₹{{ "{:,.0f}".format(setup["bank_balance"]) }}
-        </h2>
-
-    </div>
-
-
-</div>
-
-
-
-<div class="budget-section">
-
-    <div class="section-title">
-
-        <h2>
-            Monthly Budget Usage
-        </h2>
-
-        <span>
-            {{ percentage_used }}%
-        </span>
-
-    </div>
-
-
-    <div class="progress-container">
-
-        <div
-            class="progress-bar"
-            style="width: {{ percentage_used }}%">
+        <div class="mini-progress">
+            <div style="width: {{ percentage_used }}%"></div>
         </div>
 
     </div>
 
 
-    <p class="advice">
+    <div class="dw-stat-card">
 
-        {{ advice }}
+        <div class="stat-icon bank-icon">⌁</div>
 
-    </p>
+        <div class="stat-info">
+            <span>Bank Balance</span>
 
-</div>
+            <strong>
+                ₹{{ "{:,.0f}".format(setup["bank_balance"]) }}
+            </strong>
+        </div>
+
+        <div class="stat-arrow">↗</div>
+
+    </div>
+
+</section>
 
 
+<!-- =========================
+     BUDGET ANALYSIS
+========================= -->
+
+<section class="dw-budget-card">
+
+    <div class="budget-left">
+
+        <div class="section-eyebrow">
+            MONTHLY OVERVIEW
+        </div>
+
+        <h2>
+            You're using
+            <span>{{ percentage_used }}%</span>
+            of your budget
+        </h2>
+
+        <p>
+            {{ advice }}
+        </p>
+
+        <div class="budget-track">
+            <div
+                class="budget-fill"
+                style="width: {{ percentage_used }}%">
+            </div>
+        </div>
+
+        <div class="budget-labels">
+            <span>₹0</span>
+            <span>
+                ₹{{ "{:,.0f}".format(setup["monthly_budget"]) }}
+            </span>
+        </div>
+
+    </div>
+
+
+    <div class="budget-circle">
+
+        <div
+            class="circle-progress"
+            style="--progress: {{ percentage_used }}%;">
+            <div class="circle-content">
+                <strong>{{ percentage_used }}%</strong>
+                <span>used</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SMART INSIGHT
+========================= -->
 
 {% if highest_category %}
 
-<div class="insight-card">
+<section class="smart-insight">
 
-    <span class="insight-label">
-        Biggest spending category
-    </span>
+    <div class="insight-icon">
+        ✦
+    </div>
 
-    <h2>
-        {{ highest_category["category"] }}
-    </h2>
+    <div class="insight-content">
 
-    <p>
+        <span>SMART INSIGHT</span>
 
-        You have spent
+        <h2>
+            {{ highest_category["category"] }}
+            is your biggest expense.
+        </h2>
 
-        <strong>
-            ₹{{ "{:,.0f}".format(highest_category["total"]) }}
-        </strong>
+        <p>
+            You've spent
+            <strong>
+                ₹{{ "{:,.0f}".format(highest_category["total"]) }}
+            </strong>
+            on this category this month.
+        </p>
 
-        in this category this month.
+    </div>
 
-    </p>
+    <div class="insight-decoration">
+        →
+    </div>
 
-</div>
+</section>
 
 {% endif %}
 
 
+<!-- =========================
+     MAIN GRID
+========================= -->
 
-<div class="content-grid">
+<section class="dw-main-grid">
 
 
-    <div class="card">
+    <!-- RECENT EXPENSES -->
 
-        <div class="card-header">
+    <div class="dw-panel expenses-panel">
 
-            <h2>
-                Recent Expenses
-            </h2>
+        <div class="panel-header">
 
-            <a href="{{ url_for('expenses') }}">
-                View all
+            <div>
+                <span class="panel-eyebrow">
+                    ACTIVITY
+                </span>
+
+                <h2>
+                    Recent expenses
+                </h2>
+            </div>
+
+            <a href="{{ url_for('expenses') }}" class="view-all">
+                View all →
             </a>
 
         </div>
@@ -167,40 +252,63 @@
 
         {% if expenses %}
 
-            {% for expense in expenses %}
+            <div class="expense-list">
 
-            <div class="expense-row">
+                {% for expense in expenses %}
 
-                <div>
+                <div class="dw-expense">
 
-                    <strong>
-                        {{ expense["title"] }}
-                    </strong>
+                    <div class="expense-left">
 
-                    <span>
-                        {{ expense["category"] }}
-                    </span>
+                        <div class="expense-avatar">
+                            {{ expense["title"][0]|upper }}
+                        </div>
+
+                        <div class="expense-details">
+
+                            <strong>
+                                {{ expense["title"] }}
+                            </strong>
+
+                            <span>
+                                {{ expense["category"] }}
+                                {% if expense["expense_date"] %}
+                                    · {{ expense["expense_date"] }}
+                                {% endif %}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="expense-right">
+
+                        <strong>
+                            −₹{{ "{:,.0f}".format(expense["amount"]) }}
+                        </strong>
+
+                    </div>
 
                 </div>
 
-
-                <div class="expense-amount">
-
-                    - ₹{{ "{:,.0f}".format(expense["amount"]) }}
-
-                </div>
+                {% endfor %}
 
             </div>
 
-            {% endfor %}
-
         {% else %}
 
-            <p class="empty-state">
+            <div class="empty-modern">
 
-                No expenses added yet.
+                <div>◎</div>
 
-            </p>
+                <h3>No expenses yet</h3>
+
+                <p>
+                    Start tracking your spending to see it here.
+                </p>
+
+            </div>
 
         {% endif %}
 
@@ -208,44 +316,133 @@
 
 
 
-    <div class="card">
+    <!-- SPENDING BREAKDOWN -->
 
-        <h2>
-            Spending Breakdown
-        </h2>
+    <div class="dw-panel breakdown-panel">
+
+        <div class="panel-header">
+
+            <div>
+                <span class="panel-eyebrow">
+                    ANALYTICS
+                </span>
+
+                <h2>
+                    Spending breakdown
+                </h2>
+            </div>
+
+        </div>
 
 
         {% if categories %}
 
-            {% for category in categories %}
+            <div class="category-chart">
 
-            <div class="category-row">
+                {% for category in categories %}
 
-                <span>
-                    {{ category["category"] }}
-                </span>
+                    {% if total_spent > 0 %}
+                        {% set category_percentage =
+                            ((category["total"] / total_spent) * 100)|round(0)
+                        %}
+                    {% else %}
+                        {% set category_percentage = 0 %}
+                    {% endif %}
 
-                <strong>
-                    ₹{{ "{:,.0f}".format(category["total"]) }}
-                </strong>
+
+                    <div class="category-item">
+
+                        <div class="category-heading">
+
+                            <div class="category-name">
+
+                                <span class="category-dot dot-{{ loop.index }}">
+                                </span>
+
+                                {{ category["category"] }}
+
+                            </div>
+
+                            <strong>
+                                ₹{{ "{:,.0f}".format(category["total"]) }}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="category-track">
+
+                            <div
+                                class="category-fill fill-{{ loop.index }}"
+                                style="width: {{ category_percentage }}%">
+                            </div>
+
+                        </div>
+
+
+                        <span class="category-percent">
+                            {{ category_percentage }}%
+                        </span>
+
+                    </div>
+
+                {% endfor %}
 
             </div>
 
-            {% endfor %}
-
         {% else %}
 
-            <p class="empty-state">
+            <div class="empty-modern">
 
-                Your category analysis will appear here.
+                <div>◌</div>
 
-            </p>
+                <h3>Your analytics are waiting</h3>
+
+                <p>
+                    Add a few expenses to unlock your spending insights.
+                </p>
+
+            </div>
 
         {% endif %}
 
     </div>
 
+</section>
 
-</div>
+
+<!-- =========================
+     QUICK SUMMARY
+========================= -->
+
+<section class="quick-summary">
+
+    <div>
+        <span>MONTHLY BUDGET</span>
+        <strong>
+            ₹{{ "{:,.0f}".format(setup["monthly_budget"]) }}
+        </strong>
+    </div>
+
+    <div class="summary-line"></div>
+
+    <div>
+        <span>SPENT</span>
+        <strong>
+            ₹{{ "{:,.0f}".format(total_spent) }}
+        </strong>
+    </div>
+
+    <div class="summary-line"></div>
+
+    <div>
+        <span>LEFT TO SPEND</span>
+        <strong>
+            ₹{{ "{:,.0f}".format(remaining_budget) }}
+        </strong>
+    </div>
+
+</section>
+
 
 {% endblock %}
